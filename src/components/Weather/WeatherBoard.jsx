@@ -1,8 +1,12 @@
 import AddToFavourite from "./AddToFavourite.jsx";
 import WeatherHeadline from "./WeatherHeadline.jsx";
 import WeatherCondition from "./WeatherCondition.jsx";
+import {useWeather} from "../../hooks/index.js";
 
 const WeatherBoard = () => {
+    const {error, loading, weather} = useWeather();
+    console.log(error, loading, weather);
+
     return (
         <section className="">
             <div className="container">
