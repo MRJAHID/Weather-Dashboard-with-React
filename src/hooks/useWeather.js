@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 const useWeather = () => {
     const [weather, setWeather] = useState({
@@ -14,6 +14,7 @@ const useWeather = () => {
         longitude: "",
         latitude: "",
     });
+
     const [loading, setLoading] = useState({
         state: false,
         message: ''
@@ -67,6 +68,29 @@ const useWeather = () => {
                 message: ""
             })
         }
+    }
+
+    // * useEffect for load data on mount
+    useEffect(() => {
+
+        // ? Loading state True
+        setLoading({
+            loading: true,
+            message: "Finding Location..."
+        })
+
+        // * JS geolocation API For Lat & Longitude
+        // ! NEED TO ALLOW LOCATION PERMISSIONS BY USER
+        navigator.geolocation.getCurrentPosition((position) => {
+            fethWeatherData(position.coords.latitude, position.coords.longitude);
+        })
+    }, []);
+
+    // * Return the Data
+    return {
+        weather,
+        error,
+        loading
     }
 }
 
