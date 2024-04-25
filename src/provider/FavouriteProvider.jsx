@@ -8,16 +8,13 @@ const FavouriteProvider = ({children}) => {
     const [favourites, setFavourites] = useLocalStorage("favourites", []);
 
     // Add Data to favorites
-    const addToFavourites = (lat, long, location) => {
-        setFavourites(
-            ...favourites,
-            {
-                latitude: lat,
-                longitude: long,
+    const addToFavourites = (latitude, longitude, location) => {
+        setFavourites([...favourites, {
+                latitude: latitude,
+                longitude: longitude,
                 location: location,
-            }
-        )
-    }
+        }]);
+    };
 
     // Add Data From favorites
     const removeFromFavourites = (location) => {
