@@ -1,22 +1,12 @@
-import Header from "./components/Header/Header.jsx";
-import WeatherBoard from "./components/Weather/WeatherBoard.jsx";
 import {FavouriteProvider, LocationProvider, WeatherProvider} from "./provider/index.js";
+import Page from "./Page.jsx";
 
 export default function App() {
     return (
-
-        // * Wrap With Context WeatherProvider with Weather Data
         <WeatherProvider>
             <FavouriteProvider>
                 <LocationProvider>
-                    <div className='grid place-items-center h-screen'>
-                        <Header/>
-                        <main>
-                            <section>
-                                <WeatherBoard/>
-                            </section>
-                        </main>
-                    </div>
+                    <Page/>
                 </LocationProvider>
             </FavouriteProvider>
         </WeatherProvider>

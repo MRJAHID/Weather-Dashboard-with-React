@@ -7,7 +7,6 @@ const weatherProvider = ({children}) => {
     const {weather, error, loading} = useWeather();
     return (
         <WeatherContext.Provider value={{weather, error, loading}}>
-             {/*Components Hierarchy*/}
             {children}
         </WeatherContext.Provider>
     );

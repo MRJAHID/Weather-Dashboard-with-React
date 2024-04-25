@@ -11,7 +11,7 @@ const Search = () => {
     function handleSubmit(e) {
         e.preventDefault();
         const fetchedLocation = getLocationByName(searchTerm);
-        setSelectedLocation({...fetchedLocation})
+        setSelectedLocation({ ...fetchedLocation });
         console.log(fetchedLocation)
     }
 
