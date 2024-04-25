@@ -1,15 +1,13 @@
-import {WeatherContext} from "../context/index.js";
-import {useWeather} from "../hooks/index.js";
+import { WeatherContext } from "../context";
+import { useWeather } from "../hooks";
 
-// * Weather Context Provider
-const weatherProvider = ({children}) => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const {weather, error, loading} = useWeather();
+const WeatherProvider = ({ children }) => {
+    const { weatherData, error, loading } = useWeather();
     return (
-        <WeatherContext.Provider value={{weather, error, loading}}>
+        <WeatherContext.Provider value={{ weatherData, error, loading }}>
             {children}
         </WeatherContext.Provider>
     );
-}
+};
 
-export default  weatherProvider;
+export default WeatherProvider;

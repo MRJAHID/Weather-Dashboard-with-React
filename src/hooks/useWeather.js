@@ -1,8 +1,8 @@
-import {useContext, useEffect, useState} from "react";
-import {LocationContext} from "../context/index.js";
+import { useContext, useEffect, useState } from "react";
+import { LocationContext } from "../context";
 
 const useWeather = () => {
-    const [weather, setWeather] = useState({
+    const [weatherData, setWeatherData] = useState({
         location: "",
         climate: "",
         temperature: "",
@@ -23,7 +23,6 @@ const useWeather = () => {
     const [error, setError] = useState(null);
 
     const { selectedLocation } = useContext(LocationContext);
-    console.log(selectedLocation)
 
     const fetchWeatherData = async (latitude, longitude) => {
         try {
@@ -47,7 +46,7 @@ const useWeather = () => {
             const data = await response.json();
 
             const updateWeatherData = {
-                ...weather,
+                ...weatherData,
                 location: data?.name,
                 climate: data?.weather[0]?.main,
                 temperature: data?.main?.temp,
@@ -60,7 +59,7 @@ const useWeather = () => {
                 longitude: longitude,
                 latitude: latitude,
             };
-            setWeather(updateWeatherData);
+            setWeatherData(updateWeatherData);
         } catch (err) {
             setError(err);
         } finally {
@@ -94,9 +93,8 @@ const useWeather = () => {
         }
     }, [selectedLocation.latitude, selectedLocation.longitude]);
 
-
     return {
-        weather,
+        weatherData,
         error,
         loading,
     };

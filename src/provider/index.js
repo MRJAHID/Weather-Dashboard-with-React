@@ -1,6 +1,5 @@
-import WeatherProvider from "./WeatherProvider.jsx";
-import FavouriteProvider from "./FavouriteProvider.jsx";
-import LocationProvider from "./LocationProvider.jsx";
+import FavouriteProvider from "./FavoriteProvider";
+import LocationProvider from "./LocationProvider";
+import WeatherProvider from "./WeatherProvider";
 
-
-export {WeatherProvider, FavouriteProvider, LocationProvider}
+export { FavouriteProvider, LocationProvider, WeatherProvider };

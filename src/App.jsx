@@ -1,14 +1,20 @@
-import {FavouriteProvider, LocationProvider, WeatherProvider} from "./provider/index.js";
-import Page from "./Page.jsx";
+import Page from "./Page";
+import {
+    FavouriteProvider,
+    LocationProvider,
+    WeatherProvider,
+} from "./provider";
 
-export default function App() {
+function App() {
     return (
-        <WeatherProvider>
-            <FavouriteProvider>
-                <LocationProvider>
-                    <Page/>
-                </LocationProvider>
-            </FavouriteProvider>
-        </WeatherProvider>
-    )
+        <LocationProvider>
+            <WeatherProvider>
+                <FavouriteProvider>
+                    <Page />
+                </FavouriteProvider>
+            </WeatherProvider>
+        </LocationProvider>
+    );
 }
+
+export default App;

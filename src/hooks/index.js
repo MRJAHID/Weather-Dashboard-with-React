@@ -1,5 +1,5 @@
-import useWeather from './useWeather.js';
-import useLocalStorage from './useLocalStorage.js';
-import useDebounce from "./useDebounce.jsx";
+import useDebounce from "./useDebounce";
+import useLocalStorage from "./useLocalStorage";
+import useWeather from "./useWeather";
 
-export {useWeather, useLocalStorage, useDebounce}
+export { useDebounce, useLocalStorage, useWeather };
